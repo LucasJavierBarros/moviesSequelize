@@ -4,23 +4,17 @@ module.exports = {
     list : (req,res) => {
         db.Actor.findAll()
             .then((actors) => {
-                return res.render('genresList',{
+                return res.render('actorsList',{
                     actors
                 })
             })
             .catch(error => console.log(error))
     },
-    new : (req,res) => {
-
-    },
-    recomended : (req,res) => {
-
-    },
     detail : (req,res) => {
-        db.Genre.findByPk(req.params.id)
-        .then((genre) => {
-            return res.render("genresDetail",{
-                genre
+        db.Actor.findByPk(req.params.id)
+        .then((actor) => {
+            return res.render("actorsDetail",{
+                actor
             })
         })
         .catch((error) => console.log(error)); 
